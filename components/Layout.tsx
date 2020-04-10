@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Layout = (props: Props) => (
-  <div>
+  <>
     <Head>
       <title>Pracman</title>
       <link rel="icon" href="/favicon.ico" />
@@ -23,7 +23,7 @@ const Layout = (props: Props) => (
     </Head>
     <Header />
     <div className={styles.content}>{props.children}</div>
-  </div>
+  </>
 );
 
 export default Layout;
