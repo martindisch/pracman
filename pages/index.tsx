@@ -1,14 +1,8 @@
-import Head from 'next/head';
 import Layout from '../components/Layout';
 
 const Home = () => (
   <Layout>
     <div className="container">
-      <Head>
-        <title>Pracman</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main>
         <h1 className="title">Welcome to Pracman!</h1>
 

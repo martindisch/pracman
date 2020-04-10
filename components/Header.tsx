@@ -1,10 +1,22 @@
-import styles from './Header.module.css';
+import { SimpleTopAppBar, TopAppBarFixedAdjust } from '@rmwc/top-app-bar';
 
 const Header = () => (
-  <div className={styles.container}>
-    <div className={styles['app-name']}>This is on the left</div>
-    <div>This is on the right</div>
-  </div>
+  <>
+    <SimpleTopAppBar
+      title="test"
+      navigationIcon
+      onNav={() => console.log('Navigate')}
+      actionItems={[
+        {
+          icon: 'file_download',
+          onClick: () => console.log('Do Something'),
+        },
+        { icon: 'print', onClick: () => console.log('Do Something') },
+        { icon: 'bookmark', onClick: () => console.log('Do Something') },
+      ]}
+    />
+    <TopAppBarFixedAdjust />
+  </>
 );
 
 export default Header;
