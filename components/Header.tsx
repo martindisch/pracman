@@ -1,20 +1,32 @@
-import { SimpleTopAppBar, TopAppBarFixedAdjust } from '@rmwc/top-app-bar';
+import Link from 'next/link';
+import {
+  TopAppBarActionItem,
+  TopAppBarFixedAdjust,
+  TopAppBar,
+  TopAppBarRow,
+  TopAppBarSection,
+  TopAppBarTitle,
+} from '@rmwc/top-app-bar';
+import styles from './Header.module.css';
 
 const Header = () => (
   <>
-    <SimpleTopAppBar
-      title="test"
-      navigationIcon
-      onNav={() => console.log('Navigate')}
-      actionItems={[
-        {
-          icon: 'file_download',
-          onClick: () => console.log('Do Something'),
-        },
-        { icon: 'print', onClick: () => console.log('Do Something') },
-        { icon: 'bookmark', onClick: () => console.log('Do Something') },
-      ]}
-    />
+    <TopAppBar>
+      <TopAppBarRow>
+        <TopAppBarSection alignStart>
+          <Link href="/">
+            <a className={styles['sneaky-anchor']}>
+              <TopAppBarTitle>Pracman</TopAppBarTitle>
+            </a>
+          </Link>
+        </TopAppBarSection>
+        <TopAppBarSection alignEnd>
+          <Link href="/account">
+            <TopAppBarActionItem icon="account_circle" />
+          </Link>
+        </TopAppBarSection>
+      </TopAppBarRow>
+    </TopAppBar>
     <TopAppBarFixedAdjust />
   </>
 );
