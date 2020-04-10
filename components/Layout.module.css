@@ -1,0 +1,14 @@
+.page {
+  border: 8px solid blue;
+}
+
+@media only screen and (min-width: 961px) {
+  .page {
+    width: 960px;
+    margin: 0 auto;
+  }
+}
+
+.content {
+  padding: 16px;
+}
