@@ -1,7 +1,7 @@
 import Layout from '../../components/Layout';
 
 const About = () => (
-  <Layout>
+  <Layout title="About">
     <p>Hello world! This is supposedly the about page.</p>
   </Layout>
 );

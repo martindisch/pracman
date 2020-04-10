@@ -5,12 +5,13 @@ import styles from './Layout.module.css';
 
 interface Props {
   children: ReactNode;
+  title: string;
 }
 
 const Layout = (props: Props) => (
   <>
     <Head>
-      <title>Pracman</title>
+      <title>{props.title}</title>
       <link rel="icon" href="/favicon.ico" />
       <link
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"

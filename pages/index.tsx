@@ -1,7 +1,7 @@
 import Layout from '../components/Layout';
 
 const Home = () => (
-  <Layout>
+  <Layout title="Home">
     <p>This is the main page, I think.</p>
   </Layout>
 );
