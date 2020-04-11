@@ -1,8 +1,152 @@
+import {
+  Card,
+  CardMedia,
+  CardPrimaryAction,
+  CardActions,
+  CardActionButton,
+  CardActionButtons,
+  CardActionIcon,
+  CardActionIcons,
+} from '@rmwc/card';
+import { Typography } from '@rmwc/typography';
 import Layout from '../../components/Layout';
+import styles from './index.module.css';
 
 const Account = () => (
   <Layout title="Account">
-    <p>Hello world! This is supposedly the account page.</p>
+    <div className={styles.content}>
+      <Card className={styles.card}>
+        <CardPrimaryAction>
+          <CardMedia
+            sixteenByNine
+            style={{
+              backgroundImage:
+                'url(https://rmwc.io/images/backgrounds/mb-bg-fb-16.png)',
+            }}
+          />
+          <div style={{ padding: '0 1rem 1rem 1rem' }}>
+            <Typography use="headline6" tag="h2">
+              Our Changing Planet
+            </Typography>
+            <Typography
+              use="subtitle2"
+              tag="h3"
+              theme="textSecondaryOnBackground"
+              style={{ marginTop: '-1rem' }}
+            >
+              by Kurt Wagner
+            </Typography>
+            <Typography
+              use="body1"
+              tag="div"
+              theme="textSecondaryOnBackground"
+            >
+              Visit ten places on our planet that are undergoing the biggest
+              changes today.
+            </Typography>
+          </div>
+        </CardPrimaryAction>
+        <CardActions>
+          <CardActionButtons>
+            <CardActionButton>Read</CardActionButton>
+            <CardActionButton>Bookmark</CardActionButton>
+          </CardActionButtons>
+          <CardActionIcons>
+            <CardActionIcon onIcon="favorite" icon="favorite_border" />
+            <CardActionIcon icon="share" />
+            <CardActionIcon icon="more_vert" />
+          </CardActionIcons>
+        </CardActions>
+      </Card>
+
+      <Card className={styles.card}>
+        <CardPrimaryAction>
+          <CardMedia
+            sixteenByNine
+            style={{
+              backgroundImage:
+                'url(https://rmwc.io/images/backgrounds/mb-bg-fb-16.png)',
+            }}
+          />
+          <div style={{ padding: '0 1rem 1rem 1rem' }}>
+            <Typography use="headline6" tag="h2">
+              Our Changing Planet
+            </Typography>
+            <Typography
+              use="subtitle2"
+              tag="h3"
+              theme="textSecondaryOnBackground"
+              style={{ marginTop: '-1rem' }}
+            >
+              by Kurt Wagner
+            </Typography>
+            <Typography
+              use="body1"
+              tag="div"
+              theme="textSecondaryOnBackground"
+            >
+              Visit ten places on our planet that are undergoing the biggest
+              changes today.
+            </Typography>
+          </div>
+        </CardPrimaryAction>
+        <CardActions>
+          <CardActionButtons>
+            <CardActionButton>Read</CardActionButton>
+            <CardActionButton>Bookmark</CardActionButton>
+          </CardActionButtons>
+          <CardActionIcons>
+            <CardActionIcon onIcon="favorite" icon="favorite_border" />
+            <CardActionIcon icon="share" />
+            <CardActionIcon icon="more_vert" />
+          </CardActionIcons>
+        </CardActions>
+      </Card>
+
+      <Card className={styles.card}>
+        <CardPrimaryAction>
+          <CardMedia
+            sixteenByNine
+            style={{
+              backgroundImage:
+                'url(https://rmwc.io/images/backgrounds/mb-bg-fb-16.png)',
+            }}
+          />
+          <div style={{ padding: '0 1rem 1rem 1rem' }}>
+            <Typography use="headline6" tag="h2">
+              Our Changing Planet
+            </Typography>
+            <Typography
+              use="subtitle2"
+              tag="h3"
+              theme="textSecondaryOnBackground"
+              style={{ marginTop: '-1rem' }}
+            >
+              by Kurt Wagner
+            </Typography>
+            <Typography
+              use="body1"
+              tag="div"
+              theme="textSecondaryOnBackground"
+            >
+              Visit ten places on our planet that are undergoing the biggest
+              changes today.
+            </Typography>
+          </div>
+        </CardPrimaryAction>
+        <CardActions>
+          <CardActionButtons>
+            <CardActionButton>Read</CardActionButton>
+            <CardActionButton>Bookmark</CardActionButton>
+          </CardActionButtons>
+          <CardActionIcons>
+            <CardActionIcon onIcon="favorite" icon="favorite_border" />
+            <CardActionIcon icon="share" />
+            <CardActionIcon icon="more_vert" />
+          </CardActionIcons>
+        </CardActions>
+      </Card>
+    </div>
   </Layout>
 );
 

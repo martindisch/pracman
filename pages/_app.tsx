@@ -7,6 +7,10 @@ import '@rmwc/icon/icon.css';
 import '@material/menu/dist/mdc.menu.css';
 import '@material/menu-surface/dist/mdc.menu-surface.css';
 import '@material/list/dist/mdc.list.css';
+import '@material/card/dist/mdc.card.css';
+import '@material/button/dist/mdc.button.css';
+import '@material/icon-button/dist/mdc.icon-button.css';
+import '@material/typography/dist/mdc.typography.css';
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <Component {...pageProps} />
