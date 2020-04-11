@@ -2,6 +2,8 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import bcrypt from 'bcrypt';
 import getUsers from '../../../util/mongo';
 
+const saltRounds = 10;
+
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   // Fail on wrong HTTP method
   if (req.method !== 'POST') {
@@ -15,20 +17,16 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(400).send(null);
     return;
   }
-  // Fail on missing user
+  // Fail on already existing user
   const users = await getUsers();
-  const result = await users.find({ name }).toArray();
-  if (result.length === 0) {
-    res.status(400).send(null);
-    return;
-  }
-  // Fail on hash mismatch
-  const user = result[0];
-  if (!(await bcrypt.compare(password, user.hash))) {
+  if ((await users.find({ name }).toArray()).length !== 0) {
     res.status(400).send(null);
     return;
   }
 
-  // Otherwise we're good (we'd return an issued JWT)
-  res.status(200).send('success');
+  // Otherwise, salt, hash & insert
+  const hash = await bcrypt.hash(password, saltRounds);
+  await users.insertOne({ name, hash });
+  // Return representation of created user (without password hash)
+  res.status(200).json({ name });
 };

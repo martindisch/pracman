@@ -14,6 +14,8 @@
     "@rmwc/textfield": "^6.0.14",
     "@rmwc/top-app-bar": "^6.0.14",
     "@rmwc/typography": "^6.0.14",
+    "@types/bcrypt": "^3.0.0",
+    "bcrypt": "^4.0.1",
     "classnames": "^2.2.6",
     "mongodb": "^3.5.5",
     "next": "9.3.4",
