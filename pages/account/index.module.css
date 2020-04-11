@@ -3,8 +3,3 @@
   justify-content: space-around;
   flex-wrap: wrap;
 }
-
-.card {
-  margin: 0.5rem;
-  flex: 1;
-}
