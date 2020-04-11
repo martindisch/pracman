@@ -7,10 +7,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "@rmwc/button": "^6.0.14",
     "@rmwc/card": "^6.0.14",
     "@rmwc/menu": "^6.0.14",
+    "@rmwc/textfield": "^6.0.14",
     "@rmwc/top-app-bar": "^6.0.14",
     "@rmwc/typography": "^6.0.14",
+    "classnames": "^2.2.6",
     "next": "9.3.4",
     "react": "16.13.1",
     "react-dom": "16.13.1"

@@ -9,8 +9,11 @@ import '@material/menu-surface/dist/mdc.menu-surface.css';
 import '@material/list/dist/mdc.list.css';
 import '@material/card/dist/mdc.card.css';
 import '@material/button/dist/mdc.button.css';
-import '@material/icon-button/dist/mdc.icon-button.css';
 import '@material/typography/dist/mdc.typography.css';
+import '@material/textfield/dist/mdc.textfield.css';
+import '@material/floating-label/dist/mdc.floating-label.css';
+import '@material/notched-outline/dist/mdc.notched-outline.css';
+import '@material/line-ripple/dist/mdc.line-ripple.css';
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <Component {...pageProps} />

@@ -1,15 +1,18 @@
-import {
-  Card,
-  CardMedia,
-  CardPrimaryAction,
-  CardActions,
-  CardActionButton,
-  CardActionButtons,
-  CardActionIcon,
-  CardActionIcons,
-} from '@rmwc/card';
+import { Card } from '@rmwc/card';
 import { Typography } from '@rmwc/typography';
+import { TextField } from '@rmwc/textfield';
+import { Button } from '@rmwc/button';
+import classNames from 'classnames';
 import styles from './CredentialsForm.module.css';
+
+enum FormTypes {
+  Signup,
+  Login,
+}
+
+interface Props {
+  kind: FormTypes;
+}
 
 /**
  * A card showing either login or signup form fields.
@@ -18,46 +21,34 @@ import styles from './CredentialsForm.module.css';
  * together with other cards), it defines its own outer spacing, even though
  * that technically harms reusability.
  */
-const CredentialsForm = () => (
-  <Card className={styles.card}>
-    <CardPrimaryAction>
-      <CardMedia
-        sixteenByNine
-        style={{
-          backgroundImage:
-            'url(https://rmwc.io/images/backgrounds/mb-bg-fb-16.png)',
-        }}
+const CredentialsForm = (props: Props) => {
+  return (
+    <Card className={styles.card}>
+      <Typography use="headline6" tag="h2">
+        {props.kind === FormTypes.Login ? 'Login' : 'Sign up'}
+      </Typography>
+      <TextField className={styles.item} outlined label="Username" />
+      <TextField
+        className={styles.item}
+        outlined
+        label="Password"
+        type="password"
       />
-      <div style={{ padding: '0 1rem 1rem 1rem' }}>
-        <Typography use="headline6" tag="h2">
-          Our Changing Planet
-        </Typography>
-        <Typography
-          use="subtitle2"
-          tag="h3"
-          theme="textSecondaryOnBackground"
-          style={{ marginTop: '-1rem' }}
-        >
-          by Kurt Wagner
-        </Typography>
-        <Typography use="body1" tag="div" theme="textSecondaryOnBackground">
-          Visit ten places on our planet that are undergoing the biggest
-          changes today.
-        </Typography>
-      </div>
-    </CardPrimaryAction>
-    <CardActions>
-      <CardActionButtons>
-        <CardActionButton>Read</CardActionButton>
-        <CardActionButton>Bookmark</CardActionButton>
-      </CardActionButtons>
-      <CardActionIcons>
-        <CardActionIcon onIcon="favorite" icon="favorite_border" />
-        <CardActionIcon icon="share" />
-        <CardActionIcon icon="more_vert" />
-      </CardActionIcons>
-    </CardActions>
-  </Card>
-);
+      {props.kind === FormTypes.Signup ? (
+        <TextField
+          className={styles.item}
+          outlined
+          label="Repeat password"
+          type="password"
+        />
+      ) : null}
+      <Button
+        className={classNames(styles.item, styles.button)}
+        label={props.kind === FormTypes.Login ? 'Login' : 'Sign up'}
+        raised
+      />
+    </Card>
+  );
+};
 
-export default CredentialsForm;
+export { CredentialsForm, FormTypes };
