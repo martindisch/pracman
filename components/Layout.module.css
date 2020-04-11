@@ -1,6 +1,5 @@
 .content {
-  border: 8px solid blue;
-  padding: 16px;
+  padding: 0.5rem;
 }
 
 @media only screen and (min-width: 961px) {
