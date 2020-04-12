@@ -31,7 +31,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (name === process.env.ADMIN_NAME) {
     // This is the artificial admin user
     if (password !== process.env.ADMIN_PASSWORD) {
-      res.status(400).send(null);
+      res.status(401).send(null);
       return;
     }
     // Since the user doesn't exist, we need to build it
@@ -44,13 +44,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const users = await getUsers();
     const result = await users.find({ name }).toArray();
     if (result.length === 0) {
-      res.status(400).send(null);
+      res.status(401).send(null);
       return;
     }
     // Fail on hash mismatch
     [user] = result;
     if (!(await bcrypt.compare(password, user.hash))) {
-      res.status(400).send(null);
+      res.status(401).send(null);
       return;
     }
   }
