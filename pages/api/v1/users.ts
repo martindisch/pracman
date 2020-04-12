@@ -26,7 +26,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   // Otherwise, salt, hash & insert
   const hash = await bcrypt.hash(password, saltRounds);
-  await users.insertOne({ name, hash });
+  const rights = ['user'];
+  await users.insertOne({ name, hash, rights });
   // Return representation of created user (without password hash)
-  res.status(200).json({ name });
+  res.status(200).json({ name, rights });
 };
