@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import getUsers from '../../../util/mongo';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -23,12 +24,27 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
   // Fail on hash mismatch
-  const user = result[0];
+  const [user] = result;
   if (!(await bcrypt.compare(password, user.hash))) {
     res.status(400).send(null);
     return;
   }
+  // Fail on missing secret variable
+  const secret = process.env.JWT_SECRET;
+  if (typeof secret !== 'string') {
+    console.error(
+      'Environment variable JWT_SECRET not set: unable to authenticate users'
+    );
+    res.status(500).send(null);
+    return;
+  }
 
-  // Otherwise we're good (we'd return an issued JWT)
-  res.status(200).send('success');
+  // If we're here, all's well and we can go ahead signing
+  const signOptions = {
+    issuer: 'pracman',
+    subject: user.name,
+    expiresIn: '4w',
+  };
+  const token = jwt.sign({ rights: user.rights }, secret, signOptions);
+  res.status(200).send(token);
 };
