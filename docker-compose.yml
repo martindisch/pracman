@@ -6,7 +6,7 @@ services:
     volumes:
       - mongo:/data/db
   app:
-    build: .
+    build: app
     env_file:
       - .env
     restart: always

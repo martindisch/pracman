@@ -6,6 +6,3 @@ node_modules/
 .next/
 # Docker
 Dockerfile
-docker-compose.yml
-# Credentials
-.env
