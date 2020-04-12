@@ -62,5 +62,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     expiresIn: '4w',
   };
   const token = jwt.sign({ rights: user.rights }, secret, signOptions);
-  res.status(200).send(token);
+  // We'll keep the cookie for 4 weeks, the duration the JWT is valid for
+  const maxAge = 4 * 7 * 24 * 60 * 60;
+  // TODO: once deployed, we should also add the Secure directive for HTTPS
+  res.setHeader(
+    'Set-Cookie',
+    `token=${token}; Max-Age=${maxAge}; HttpOnly; SameSite=Strict`
+  );
+  res.status(200).send(null);
 };
