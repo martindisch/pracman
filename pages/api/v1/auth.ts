@@ -16,19 +16,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(400).send(null);
     return;
   }
-  // Fail on missing user
-  const users = await getUsers();
-  const result = await users.find({ name }).toArray();
-  if (result.length === 0) {
-    res.status(400).send(null);
-    return;
-  }
-  // Fail on hash mismatch
-  const [user] = result;
-  if (!(await bcrypt.compare(password, user.hash))) {
-    res.status(400).send(null);
-    return;
-  }
   // Fail on missing secret variable
   const secret = process.env.JWT_SECRET;
   if (typeof secret !== 'string') {
@@ -37,6 +24,35 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     );
     res.status(500).send(null);
     return;
+  }
+
+  // Determine if we're using the artificial admin user or a real one
+  let user;
+  if (name === process.env.ADMIN_NAME) {
+    // This is the artificial admin user
+    if (password !== process.env.ADMIN_PASSWORD) {
+      res.status(400).send(null);
+      return;
+    }
+    // Since the user doesn't exist, we need to build it
+    user = {
+      name,
+      rights: ['user', 'admin'],
+    };
+  } else {
+    // Fail on missing user
+    const users = await getUsers();
+    const result = await users.find({ name }).toArray();
+    if (result.length === 0) {
+      res.status(400).send(null);
+      return;
+    }
+    // Fail on hash mismatch
+    [user] = result;
+    if (!(await bcrypt.compare(password, user.hash))) {
+      res.status(400).send(null);
+      return;
+    }
   }
 
   // If we're here, all's well and we can go ahead signing
