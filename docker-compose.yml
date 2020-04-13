@@ -5,6 +5,15 @@ services:
     restart: always
     volumes:
       - mongo:/data/db
+  graphql:
+    build: graphql
+    env_file:
+      - .env
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - '4000:4000'
   app:
     build: app
     env_file:
@@ -12,6 +21,7 @@ services:
     restart: always
     depends_on:
       - db
+      - graphql
     ports:
       - '8080:3000'
 volumes:
