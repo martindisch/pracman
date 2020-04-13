@@ -3,7 +3,7 @@ import { gql } from 'apollo-boost';
 
 const PRACTICES = gql`
   {
-    getPractices {
+    practices {
       title
       athleteResults {
         user

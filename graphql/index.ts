@@ -50,7 +50,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    getPractices: [Practice!]!
+    practices: [Practice!]!
   }
 `;
 
@@ -183,7 +183,7 @@ const practices = [
 
 const resolvers = {
   Query: {
-    getPractices: () => practices,
+    practices: () => practices,
   },
 };
 
