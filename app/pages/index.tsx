@@ -1,8 +1,9 @@
 import Layout from '../components/Layout';
+import Practices from '../components/Practices';
 
 const Home = () => (
   <Layout title="Home">
-    <p>This is the main page, I think.</p>
+    <Practices />
   </Layout>
 );
 
