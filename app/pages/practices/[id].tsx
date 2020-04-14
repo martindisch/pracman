@@ -7,7 +7,7 @@ const Practice = () => {
 
   return (
     <Layout title="Account">
-      <p>{id}</p>
+      <div>{id}</div>
     </Layout>
   );
 };

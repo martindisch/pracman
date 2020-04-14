@@ -22,8 +22,8 @@ const PRACTICES = gql`
 const Practices = () => {
   const { loading, error, data } = useQuery(PRACTICES);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error.message}</p>;
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error.message}</div>;
 
   return (
     <List twoLine>
