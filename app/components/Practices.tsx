@@ -7,6 +7,7 @@ import {
   ListItemPrimaryText,
   ListItemSecondaryText,
 } from '@rmwc/list';
+import Link from 'next/link';
 
 const PRACTICES = gql`
   {
@@ -27,12 +28,18 @@ const Practices = () => {
   return (
     <List twoLine>
       {data.practices.map((practice: any) => (
-        <ListItem key={practice.id}>
-          <ListItemText>
-            <ListItemPrimaryText>{practice.title}</ListItemPrimaryText>
-            <ListItemSecondaryText>{practice.date}</ListItemSecondaryText>
-          </ListItemText>
-        </ListItem>
+        <Link
+          key={practice.id}
+          href="/practices/[id]"
+          as={`/practices/${practice.id}`}
+        >
+          <ListItem>
+            <ListItemText>
+              <ListItemPrimaryText>{practice.title}</ListItemPrimaryText>
+              <ListItemSecondaryText>{practice.date}</ListItemSecondaryText>
+            </ListItemText>
+          </ListItem>
+        </Link>
       ))}
     </List>
   );
