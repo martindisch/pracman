@@ -7,10 +7,11 @@ import {
   ListItemPrimaryText,
   ListItemSecondaryText,
 } from '@rmwc/list';
+import { PracticeInfo } from './__generated__/PracticeInfo';
 import Link from 'next/link';
 
-const PRACTICES = gql`
-  {
+const PRACTICE_INFO_QUERY = gql`
+  query PracticeInfo {
     practices {
       id
       date
@@ -20,27 +21,28 @@ const PRACTICES = gql`
 `;
 
 const Practices = () => {
-  const { loading, error, data } = useQuery(PRACTICES);
+  const { loading, error, data } = useQuery<PracticeInfo>(PRACTICE_INFO_QUERY);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
 
   return (
     <List twoLine>
-      {data.practices.map((practice: any) => (
-        <Link
-          key={practice.id}
-          href="/practices/[id]"
-          as={`/practices/${practice.id}`}
-        >
-          <ListItem>
-            <ListItemText>
-              <ListItemPrimaryText>{practice.title}</ListItemPrimaryText>
-              <ListItemSecondaryText>{practice.date}</ListItemSecondaryText>
-            </ListItemText>
-          </ListItem>
-        </Link>
-      ))}
+      {data &&
+        data.practices.map((practice) => (
+          <Link
+            key={practice.id}
+            href="/practices/[id]"
+            as={`/practices/${practice.id}`}
+          >
+            <ListItem>
+              <ListItemText>
+                <ListItemPrimaryText>{practice.title}</ListItemPrimaryText>
+                <ListItemSecondaryText>{practice.date}</ListItemSecondaryText>
+              </ListItemText>
+            </ListItem>
+          </Link>
+        ))}
     </List>
   );
 };
