@@ -50,9 +50,9 @@ const typeDefs = gql`
     "The units planned by the coach"
     plannedUnits: [PlannedUnit!]!
     "The weather on the day"
-    weather: String!
+    weather: String
     "The temperature on the day in degrees Celsius"
-    temperature: Int!
+    temperature: Int
     "The list of results by the athletes"
     athleteResults: [AthleteResults!]!
   }
@@ -159,8 +159,6 @@ const practices = [
         break: 'P3',
       },
     ],
-    weather: 'Rainy',
-    temperature: 18,
     athleteResults: [
       {
         id: '607f1f77bcf86cd799439017',
