@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import Layout from '../../components/Layout';
 
-const Practice = () => {
+const PracticePage = () => {
   const router = useRouter();
   const { id } = router.query;
 
@@ -12,4 +12,4 @@ const Practice = () => {
   );
 };
 
-export default Practice;
+export default PracticePage;

@@ -2,7 +2,7 @@ import Layout from '../../components/Layout';
 import { CredentialsForm, FormTypes } from '../../components/CredentialsForm';
 import styles from './index.module.css';
 
-const Account = () => (
+const AccountPage = () => (
   <Layout title="Account">
     <div className={styles.content}>
       <CredentialsForm kind={FormTypes.Login} />
@@ -12,4 +12,4 @@ const Account = () => (
   </Layout>
 );
 
-export default Account;
+export default AccountPage;
