@@ -21,7 +21,19 @@ interface Props {
 }
 
 const Practice = (props: Props) => {
-  return <div>This is practice {props.id}</div>;
+  const { loading, error, data } = useQuery<PracticeDetail>(
+    PRACTICE_DETAIL_QUERY,
+    { variables: { id: props.id } }
+  );
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error.message}</div>;
+
+  return (
+    <div>
+      This is practice {props.id} with title {data?.practice?.title}
+    </div>
+  );
 };
 
 export default Practice;
