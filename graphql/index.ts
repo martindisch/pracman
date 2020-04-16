@@ -59,6 +59,7 @@ const typeDefs = gql`
 
   type Query {
     practices: [Practice!]!
+    practice(id: ID!): Practice
   }
 `;
 
@@ -212,6 +213,9 @@ const practices = [
 const resolvers = {
   Query: {
     practices: () => practices,
+    practice: (_: any, { id }: { id: string }) => {
+      return practices.filter((p) => p.id === id)[0];
+    },
   },
 };
 
