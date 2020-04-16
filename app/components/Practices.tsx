@@ -28,21 +28,20 @@ const Practices = () => {
 
   return (
     <List twoLine>
-      {data &&
-        data.practices.map((practice) => (
-          <Link
-            key={practice.id}
-            href="/practices/[id]"
-            as={`/practices/${practice.id}`}
-          >
-            <ListItem>
-              <ListItemText>
-                <ListItemPrimaryText>{practice.title}</ListItemPrimaryText>
-                <ListItemSecondaryText>{practice.date}</ListItemSecondaryText>
-              </ListItemText>
-            </ListItem>
-          </Link>
-        ))}
+      {data?.practices.map((practice) => (
+        <Link
+          key={practice.id}
+          href="/practices/[id]"
+          as={`/practices/${practice.id}`}
+        >
+          <ListItem>
+            <ListItemText>
+              <ListItemPrimaryText>{practice.title}</ListItemPrimaryText>
+              <ListItemSecondaryText>{practice.date}</ListItemSecondaryText>
+            </ListItemText>
+          </ListItem>
+        </Link>
+      ))}
     </List>
   );
 };
