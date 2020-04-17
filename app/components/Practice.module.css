@@ -1,0 +1,14 @@
+.content {
+  padding: 0.25rem;
+}
+
+.card {
+  margin: 0.25rem;
+}
+
+.card-content {
+  padding: 0.25rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
