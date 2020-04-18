@@ -60,6 +60,7 @@ const typeDefs = gql`
   type Query {
     practices: [Practice!]!
     practice(id: ID!): Practice
+    athleteResults(id: ID!): AthleteResults
   }
 `;
 
@@ -215,6 +216,11 @@ const resolvers = {
     practices: () => practices,
     practice: (_: any, { id }: { id: string }) => {
       return practices.filter((p) => p.id === id)[0];
+    },
+    athleteResults: (_: any, { id }: { id: string }) => {
+      return practices
+        .flatMap((p) => p.athleteResults)
+        .filter((r) => r.id === id)[0];
     },
   },
 };
