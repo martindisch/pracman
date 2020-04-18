@@ -7,6 +7,14 @@
 // GraphQL query operation: PracticeDetail
 // ====================================================
 
+export interface PracticeDetail_practice_athleteResults {
+  __typename: "AthleteResults";
+  /**
+   * The ID
+   */
+  id: string;
+}
+
 export interface PracticeDetail_practice {
   __typename: "Practice";
   /**
@@ -37,6 +45,10 @@ export interface PracticeDetail_practice {
    * The temperature on the day in degrees Celsius
    */
   temperature: number | null;
+  /**
+   * The list of results by the athletes
+   */
+  athleteResults: PracticeDetail_practice_athleteResults[];
 }
 
 export interface PracticeDetail {

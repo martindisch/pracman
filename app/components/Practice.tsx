@@ -4,6 +4,7 @@ import { PracticeDetail } from './__generated__/PracticeDetail';
 import styles from './Practice.module.css';
 import { Card, CardPrimaryAction } from '@rmwc/card';
 import PracticeSnippet from './PracticeSnippet';
+import AthleteResultsComponent from './AthleteResults';
 
 const PRACTICE_DETAIL_QUERY = gql`
   query PracticeDetail($id: ID!) {
@@ -15,6 +16,9 @@ const PRACTICE_DETAIL_QUERY = gql`
       title
       weather
       temperature
+      athleteResults {
+        id
+      }
     }
   }
 `;
@@ -44,6 +48,9 @@ const Practice = (props: Props) => {
           <PracticeSnippet text={practice.location} icon="place" />
         </CardPrimaryAction>
       </Card>
+      {practice.athleteResults.map((r) => (
+        <AthleteResultsComponent key={r.id} id={r.id} />
+      ))}
     </div>
   );
 };
