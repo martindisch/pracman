@@ -10,6 +10,10 @@
 export interface PracticeDetail_practice {
   __typename: "Practice";
   /**
+   * The ID
+   */
+  id: string;
+  /**
    * The date
    */
   date: string;

@@ -8,6 +8,7 @@ import PracticeSnippet from './PracticeSnippet';
 const PRACTICE_DETAIL_QUERY = gql`
   query PracticeDetail($id: ID!) {
     practice(id: $id) {
+      id
       date
       location
       kind
