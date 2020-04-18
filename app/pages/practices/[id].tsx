@@ -8,7 +8,7 @@ const PracticePage = () => {
   const id = Array.isArray(queryId) ? queryId[0] : queryId;
 
   return (
-    <Layout title="Account">
+    <Layout title="Practice">
       <Practice id={id} />
     </Layout>
   );
