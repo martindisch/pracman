@@ -1,11 +1,18 @@
-.content {
-  padding: 0.25rem;
-}
-
 .card {
-  margin: 0.25rem;
+  margin: 0.5rem 0.25rem 0.25rem 0.25rem;
 }
 
 .card-content {
+  padding: 0.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
   padding: 0.25rem;
+}
+
+.rpe {
+  flex: 1;
+  text-align: end;
 }

@@ -1066,6 +1066,39 @@
     "@material/shape" "^5.1.0"
     "@material/theme" "^5.1.0"
 
+"@material/checkbox@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@material/checkbox/-/checkbox-5.1.0.tgz#2f689f6a409f0ed906a0d73bcd0078a768eaf9d1"
+  integrity sha512-NwpWxFdWrZNlSjcSEEcGz8UN7ZQ5k8VthExclJnawpYGPUnCPLTXWogREnA2Tyl22PJ6jOy8Ejb8tnpu2rSiaw==
+  dependencies:
+    "@material/animation" "^5.1.0"
+    "@material/base" "^5.1.0"
+    "@material/density" "^5.1.0"
+    "@material/dom" "^5.1.0"
+    "@material/feature-targeting" "^5.1.0"
+    "@material/ripple" "^5.1.0"
+    "@material/theme" "^5.1.0"
+    "@material/touch-target" "^5.1.0"
+    tslib "^1.9.3"
+
+"@material/data-table@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@material/data-table/-/data-table-5.1.0.tgz#4c15a0a18f7ee6d8dba77e435d4fbe064fe1f009"
+  integrity sha512-vjijTvCHM7sfyPzQ05026nSWT1Bn/3lfj1u0oeYRnym6Ke6Os36x+IF/jFhjsraXKb2we6cof7OdoMFHCU8cqQ==
+  dependencies:
+    "@material/animation" "^5.1.0"
+    "@material/base" "^5.1.0"
+    "@material/checkbox" "^5.1.0"
+    "@material/density" "^5.1.0"
+    "@material/dom" "^5.1.0"
+    "@material/elevation" "^5.1.0"
+    "@material/feature-targeting" "^5.1.0"
+    "@material/rtl" "^5.1.0"
+    "@material/shape" "^5.1.0"
+    "@material/theme" "^5.1.0"
+    "@material/typography" "^5.1.0"
+    tslib "^1.10.0"
+
 "@material/density@^5.1.0":
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/@material/density/-/density-5.1.0.tgz#d36512d413a00595122f98303766dae6b9e9fabe"
@@ -1449,6 +1482,16 @@
     "@rmwc/button" "^6.0.14"
     "@rmwc/icon-button" "^6.0.14"
     "@rmwc/ripple" "^6.0.14"
+    "@rmwc/types" "^6.0.5"
+
+"@rmwc/data-table@^6.0.14":
+  version "6.0.14"
+  resolved "https://registry.yarnpkg.com/@rmwc/data-table/-/data-table-6.0.14.tgz#b36bee5fc2c4742806b433f7e25f535a2471c194"
+  integrity sha512-M7JoukD9psx9M+tRugqbjQz+4RVUlVKC12fvrb+wVcOuNwquS24ACVrNCKXd49f7S72Vv9jkz/97g5BqDjDwyw==
+  dependencies:
+    "@material/data-table" "^5.1.0"
+    "@rmwc/base" "^6.0.14"
+    "@rmwc/icon" "^6.0.14"
     "@rmwc/types" "^6.0.5"
 
 "@rmwc/floating-label@^6.0.14":
@@ -3918,7 +3961,7 @@ graphql-tag@2.10.3, graphql-tag@^2.10.1, graphql-tag@^2.4.2:
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.10.3.tgz#ea1baba5eb8fc6339e4c4cf049dabe522b0edf03"
   integrity sha512-4FOv3ZKfA4WdOKJeHdz6B3F/vxBLSgmBcGeAFPf4n1F64ltJUvOOerNj0rsJxONQGdhUMynQIvd6LzB+1J5oKA==
 
-"graphql@14.0.2 - 14.2.0 || ^14.3.1", graphql@^14.5.3:
+"graphql@14.0.2 - 14.2.0 || ^14.3.1":
   version "14.6.0"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.6.0.tgz#57822297111e874ea12f5cd4419616930cd83e49"
   integrity sha512-VKzfvHEKybTKjQVpTFrA5yUq2S9ihcZvfJAtsDBBCuV6wauPu1xl/f9ehgVf0FcEJJs4vz6ysb/ZMkGigQZseg==
