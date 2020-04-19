@@ -41,12 +41,10 @@ const Practice = (props: Props) => {
   return (
     <div className={styles.content}>
       <Card className={styles.card}>
-        <CardPrimaryAction className={styles['card-content']}>
-          <PracticeSnippet text={practice.title} icon="title" />
-          <PracticeSnippet text={practice.date} icon="event" />
-          <PracticeSnippet text={practice.kind} icon="category" />
-          <PracticeSnippet text={practice.location} icon="place" />
-        </CardPrimaryAction>
+        <PracticeSnippet text={practice.title} icon="title" />
+        <PracticeSnippet text={practice.date} icon="event" />
+        <PracticeSnippet text={practice.kind} icon="category" />
+        <PracticeSnippet text={practice.location} icon="place" />
       </Card>
       {practice.athleteResults.map((r) => (
         <AthleteResultsComponent key={r.id} id={r.id} />

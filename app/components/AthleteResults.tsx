@@ -47,36 +47,34 @@ const AthleteResultsComponent = (props: Props) => {
 
   return (
     <Card className={styles.card}>
-      <CardPrimaryAction className={styles['card-content']}>
-        <div className={styles.header}>
-          <Typography tag="div" use="headline6">
-            {athleteResults.user}
-          </Typography>
-          <Typography className={styles.rpe} tag="div" use="body1">
-            RPE: {athleteResults.rpe}
-          </Typography>
-        </div>
-        <DataTable>
-          <DataTableContent>
-            <DataTableHead>
-              <DataTableRow>
-                <DataTableHeadCell alignMiddle>Distance</DataTableHeadCell>
-                <DataTableHeadCell alignMiddle>Time</DataTableHeadCell>
-                <DataTableHeadCell alignMiddle>Break</DataTableHeadCell>
+      <div className={styles.header}>
+        <Typography tag="div" use="headline6">
+          {athleteResults.user}
+        </Typography>
+        <Typography className={styles.rpe} tag="div" use="body1">
+          RPE: {athleteResults.rpe}
+        </Typography>
+      </div>
+      <DataTable>
+        <DataTableContent>
+          <DataTableHead>
+            <DataTableRow>
+              <DataTableHeadCell alignMiddle>Distance</DataTableHeadCell>
+              <DataTableHeadCell alignMiddle>Time</DataTableHeadCell>
+              <DataTableHeadCell alignMiddle>Break</DataTableHeadCell>
+            </DataTableRow>
+          </DataTableHead>
+          <DataTableBody>
+            {athleteResults.units.map((u) => (
+              <DataTableRow key={u?.id}>
+                <DataTableCell alignMiddle>{u?.distance}</DataTableCell>
+                <DataTableCell alignMiddle>{u?.duration}</DataTableCell>
+                <DataTableCell alignMiddle>{u?.break}</DataTableCell>
               </DataTableRow>
-            </DataTableHead>
-            <DataTableBody>
-              {athleteResults.units.map((u) => (
-                <DataTableRow key={u?.id}>
-                  <DataTableCell alignMiddle>{u?.distance}</DataTableCell>
-                  <DataTableCell alignMiddle>{u?.duration}</DataTableCell>
-                  <DataTableCell alignMiddle>{u?.break}</DataTableCell>
-                </DataTableRow>
-              ))}
-            </DataTableBody>
-          </DataTableContent>
-        </DataTable>
-      </CardPrimaryAction>
+            ))}
+          </DataTableBody>
+        </DataTableContent>
+      </DataTable>
     </Card>
   );
 };
