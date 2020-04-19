@@ -2,10 +2,11 @@
   padding: 0.25rem;
 }
 
-.card {
+.info-card {
   margin: 0.25rem;
   padding: 0.25rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 }

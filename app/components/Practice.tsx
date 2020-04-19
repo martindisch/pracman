@@ -40,11 +40,20 @@ const Practice = (props: Props) => {
 
   return (
     <div className={styles.content}>
-      <Card className={styles.card}>
+      <Card className={styles['info-card']}>
         <PracticeSnippet text={practice.title} icon="title" />
         <PracticeSnippet text={practice.date} icon="event" />
         <PracticeSnippet text={practice.kind} icon="category" />
         <PracticeSnippet text={practice.location} icon="place" />
+        {practice.temperature && (
+          <PracticeSnippet
+            text={`${practice.temperature} °C`}
+            icon="ac_unit"
+          />
+        )}
+        {practice.weather && (
+          <PracticeSnippet text={practice.weather} icon="wb_sunny" />
+        )}
       </Card>
       {practice.athleteResults.map((r) => (
         <AthleteResultsComponent key={r.id} id={r.id} />
